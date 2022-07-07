@@ -31,7 +31,6 @@ int _printf(const char *format, ...)
 					if (format[i + 1] == *type[j].op)
 					{
 						length += type[j].p(arg);
-						length--;
 					}
 			}
 			length++;
