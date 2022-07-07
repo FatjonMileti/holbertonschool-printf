@@ -26,11 +26,19 @@ int p_string(va_list arg)
 	return (i);
 }
 
-/** int p_int(va_list arg)
+int p_int(va_list arg)
 {
-	return (1);
+	int i, length;
+	
+	i = va_arg(arg, int);
+	for (length = 0; i != 0; length++)
+	{
+		_putchar(i % 10);
+		i = i / 10;
+	}
+	return (length);
 }
-
+/**
 int p_float(va_list arg)
 {
 	return (1);
