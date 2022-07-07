@@ -1,4 +1,6 @@
 #include "main.h"
+#include <stdarg.h>
+#include <stddef.h>
 /**
  *
  *
@@ -9,16 +11,31 @@ int _printf(const char *format, ...)
 		{"c", p_char},
 		{"s", p_string},
 		{"d", p_int},
-		{"i", p_int}
+		{"i", p_int},
+		{NULL, NULL}
 };
-	int i;
-	while (i < 4)
+	va_list arg;
+	int i, j;
+	
+	va_start (arg, format);
+	for (i = 0; format[i] != '\0'; i++)
 	{
-		if (type[i].op == format)
+		if (format[i] == '%')
 		{
-			return (type[i].p);
+			if (format[i + 1] == '%')
+				_putchar('%');
+			else
+			{
+				for (j = 0; j < 4; j++)
+					if (format[i + 1] == *type[j].op)
+						type[j].p(arg);
+			}
 		}
-		i++;
+		else 
+		{
+			_putchar(format[i]);
+		}
 	}
+	va_end(arg);
 	return (i);
 }
