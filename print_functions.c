@@ -63,9 +63,3 @@ int p_int(va_list arg)
 	}
 	return (length);
 }
-/**
-int p_float(va_list arg)
-{
-	return (1);
->>>>>>> 144cb0bee9e406fe673f5c5d08537815e252e0ec
-}
