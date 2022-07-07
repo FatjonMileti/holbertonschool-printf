@@ -25,6 +25,7 @@ int p_string(va_list arg)
 		_putchar(s[i]);
 	return (i);
 }
+<<<<<<< HEAD
 int p_int(va_list arg)
 {
 	int n = va_arg(arg, int), i = 0, j, length = 0;
@@ -48,4 +49,23 @@ int p_int(va_list arg)
 	}
 	length += i;
 	return (length);
+=======
+
+int p_int(va_list arg)
+{
+	int i, length;
+	
+	i = va_arg(arg, int);
+	for (length = 0; i != 0; length++)
+	{
+		_putchar(i % 10);
+		i = i / 10;
+	}
+	return (length);
+}
+/**
+int p_float(va_list arg)
+{
+	return (1);
+>>>>>>> 144cb0bee9e406fe673f5c5d08537815e252e0ec
 }
