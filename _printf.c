@@ -13,7 +13,7 @@ int _printf(const char *format, ...)
 		{NULL, NULL}
 };
 	va_list arg;
-	int i, j;
+	int i, j, length = 0;
 	
 	va_start (arg, format);
 	for (i = 0; format[i] != '\0'; i++)
@@ -21,17 +21,25 @@ int _printf(const char *format, ...)
 		if (format[i] == '%')
 		{
 			if (format[i + 1] == '%')
+			{
 				_putchar('%');
+				length++;
+			}
 			else
 			{
-				for (j = 0; j < 4; j++)
+				for (j = 0; j < 2; j++)
 					if (format[i + 1] == *type[j].op)
-						type[j].p(arg);
+					{
+						length += type[j].p(arg);
+					}
 			}
+			i++;
+
 		}
-		else if (format[i] != '%') 
+		else
 		{
 			_putchar(format[i]);
+			length++;
 		}
 	}
 	va_end(arg);
