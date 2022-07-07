@@ -25,14 +25,27 @@ int p_string(va_list arg)
 		_putchar(s[i]);
 	return (i);
 }
-
-/** int p_int(va_list arg)
+int p_int(va_list arg)
 {
-	return (1);
-}
+	int n = va_arg(arg, int), i = 0, j, length = 0;
+	int arr[10] = {};
 
-int p_float(va_list arg)
-{
-	return (1);
+	if (n < 0)
+	{
+		_putchar('-');
+		n = n * -1;
+		length++;
+	}
+	while (n != 0)
+	{
+		arr[i] = n % 10;
+		n = n / 10;
+		i++;
+	}
+	for (j = i - 1; j >= 0; j--)
+	{
+		_putchar(arr[j] + '0');
+	}
+	length += i;
+	return (length);
 }
-*/

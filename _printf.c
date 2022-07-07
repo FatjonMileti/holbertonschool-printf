@@ -10,6 +10,8 @@ int _printf(const char *format, ...)
 	print_t type[] = {
 		{"c", p_char},
 		{"s", p_string},
+		{"d", p_int},
+		{"i", p_int},
 		{NULL, NULL}
 };
 	va_list arg;
@@ -25,15 +27,18 @@ int _printf(const char *format, ...)
 				_putchar('%');
 				length++;
 			}
-			else
+			else if (format[i + 1] != '%')
 			{
-				for (j = 0; j < 2; j++)
+				for (j = 0; j < 5; j++)
 					if (format[i + 1] == *type[j].op)
 					{
 						length += type[j].p(arg);
 					}
 			}
-			length++;
+			else
+			{
+				length++;
+			}
 			i++;
 
 		}
