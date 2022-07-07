@@ -32,6 +32,8 @@ int _printf(const char *format, ...)
 					{
 						length += type[j].p(arg);
 					}
+					else
+						length++;
 			}
 			i++;
 
