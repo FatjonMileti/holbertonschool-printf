@@ -38,7 +38,7 @@ int _printf(const char *format, ...)
 					{
 						length += type[j].p(arg);
 					}
-				if (j = 3 || format[3] != *type[3].op)
+				if (j == 3 || format[3] != *type[3].op)
 					length++;
 			}
 			i++;
