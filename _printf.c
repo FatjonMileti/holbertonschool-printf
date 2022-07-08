@@ -18,6 +18,10 @@ int _printf(const char *format, ...)
 	int i, j, length = 0;
 	
 	va_start (arg, format);
+	if (format == NULL || format[0] == '%' && format[1] == '\0')
+	{
+		return (-1);
+	}
 	for (i = 0; format[i] != '\0'; i++)
 	{
 		if (format[i] == '%')
@@ -29,13 +33,12 @@ int _printf(const char *format, ...)
 			}
 			else
 			{
-				for (j = 0; j < 5; j++)
+				for (j = 0; j < 4; j++)
 					if (format[i + 1] == *type[j].op)
 					{
 						length += type[j].p(arg);
-					}
+					}	
 			}
-			length++;
 			i++;
 
 		}
