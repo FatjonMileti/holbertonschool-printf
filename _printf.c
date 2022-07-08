@@ -31,17 +31,15 @@ int _printf(const char *format, ...)
 				_putchar('%');
 				length++;
 			}
-			else if (format[i + 1] != '%')
+			else
 			{
 				for (j = 0; j < 4; j++)
 					if (format[i + 1] == *type[j].op)
 					{
 						length += type[j].p(arg);
 					}
-			}
-			else
-			{
-				length++;
+				if (j = 3 || format[3] != *type[3].op)
+					length++;
 			}
 			i++;
 
