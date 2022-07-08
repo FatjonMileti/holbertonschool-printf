@@ -6,9 +6,10 @@
 /**
  * *
  */
-typedef struct print {
+typedef struct print
+{
 	char *op;
-	int(*p)(va_list arg);
+	int (*p)(va_list arg);
 } print_t;
 
 int _putchar(char c);

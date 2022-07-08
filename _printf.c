@@ -39,11 +39,9 @@ int _printf(const char *format, ...)
 					{
 						length += type[j].p(arg);
 					}
-					if (j == 3)
-						continue;
 				}
-					length++;
 			}
+			length++;
 			i++;
 
 		}

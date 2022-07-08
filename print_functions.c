@@ -28,7 +28,7 @@ int p_string(va_list arg)
 int p_int(va_list arg)
 {
 	int n = va_arg(arg, int), i = 0, j, length = 0;
-	int arr[11] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+	int arr[11] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 
 	if (n < 0)
 	{
