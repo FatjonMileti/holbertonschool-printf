@@ -27,7 +27,7 @@ int _printf(const char *format, ...)
 				_putchar('%');
 				length++;
 			}
-			else if (format[i + 1] != '%')
+			else
 			{
 				for (j = 0; j < 5; j++)
 					if (format[i + 1] == *type[j].op)
@@ -35,10 +35,7 @@ int _printf(const char *format, ...)
 						length += type[j].p(arg);
 					}
 			}
-			else
-			{
-				length++;
-			}
+			length++;
 			i++;
 
 		}
