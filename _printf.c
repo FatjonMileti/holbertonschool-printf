@@ -34,11 +34,14 @@ int _printf(const char *format, ...)
 			else
 			{
 				for (j = 0; j < 4; j++)
+				{
 					if (format[i + 1] == *type[j].op)
 					{
 						length += type[j].p(arg);
 					}
-				if (j == 3 || format[3] != *type[3].op)
+					if (j == 3)
+						continue;
+				}
 					length++;
 			}
 			i++;
