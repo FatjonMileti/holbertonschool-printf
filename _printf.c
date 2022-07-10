@@ -2,8 +2,9 @@
 #include <stdarg.h>
 #include <stddef.h>
 /**
- *
- *
+ * _printf - called from main
+ * @format: string
+ * Return: int
  */
 int _printf(const char *format, ...)
 {
@@ -16,6 +17,7 @@ int _printf(const char *format, ...)
 };
 	va_list arg;
 	int i, j, length = 0;
+	short flag = 0;
 
 	va_start(arg, format);
 	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
@@ -30,6 +32,7 @@ int _printf(const char *format, ...)
 			{
 				_putchar('%');
 				length++;
+				flag = 1;
 			}
 			else
 			{
@@ -38,11 +41,17 @@ int _printf(const char *format, ...)
 					if (format[i + 1] == *type[j].op)
 					{
 						length += type[j].p(arg);
+						flag = 1;
 					}
 				}
 			}
-			i++;
-
+			if (flag == 1)
+				i++;
+			else
+			{
+				_putchar('%');
+				length++;
+			}
 		}
 		else
 		{

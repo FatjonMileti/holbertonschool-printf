@@ -2,7 +2,9 @@
 #include <stdarg.h>
 #include <stddef.h>
 /**
- * p_char -
+ * p_char - called from _printf
+ * @arg: char
+ * Return: int
  */
 int p_char(va_list arg)
 {
@@ -12,7 +14,11 @@ int p_char(va_list arg)
 	_putchar(c);
 	return (1);
 }
-
+/**
+ * p_string - called from _printf
+ * @arg: string
+ * Return: int
+ */
 int p_string(va_list arg)
 {
 	char *s;
@@ -25,15 +31,25 @@ int p_string(va_list arg)
 		_putchar(s[i]);
 	return (i);
 }
+/**
+ * p_int - called from _printf
+ * @arg: int
+ * Return: int
+ */
 int p_int(va_list arg)
 {
-	int n = va_arg(arg, int), i = 0, j, length = 0;
+	long n = va_arg(arg, int), i = 0, j, length = 0;
 	int arr[11] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 
 	if (n < 0)
 	{
 		_putchar('-');
 		n = n * -1;
+		length++;
+	}
+	if (n == 0)
+	{
+		_putchar('0');
 		length++;
 	}
 	while (n != 0)
